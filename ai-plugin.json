@@ -9,7 +9,7 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://yourdomain.com/openapi.yaml",
+    "url": "https://github.com/kjstark100/askthehost-customgpt-plugin/tree/main/openapi.yaml",
     "is_user_authenticated": true
   },
   "logo_url": "https://yourdomain.com/logo.png",
