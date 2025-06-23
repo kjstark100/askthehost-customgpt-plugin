@@ -17,7 +17,7 @@ HEADERS = {
 }
 
 # Set your API token here
-API_TOKEN = "patNqHDGqVoCNVqYa"
+API_TOKEN = os.getenv("API_TOKEN")
 
 def check_auth():
     auth_header = request.headers.get("Authorization")
