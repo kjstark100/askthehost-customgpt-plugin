@@ -46,3 +46,11 @@ def search_venues():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({"status": "API is running"}), 200
+
+if bottle_service and bottle_service.strip().lower() in ["yes", "true", "1"]:
+    formula_parts.append("{{Bottle Service Available?}} = 'Yes'")
+
