@@ -8,7 +8,8 @@ CORS(app)
 
 AIRTABLE_BASE_ID = "appQfjuuBSHjxcuho"
 TABLE_NAME = "Venues"
-AIRTABLE_TOKEN = "patNqHDGqVoCNVqYa"
+import os
+AIRTABLE_TOKEN = os.getenv("AIRTABLE_TOKEN")
 AIRTABLE_API_URL = f"https://api.airtable.com/v0/{AIRTABLE_BASE_ID}/{TABLE_NAME}"
 
 HEADERS = {
