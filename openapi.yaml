@@ -3,7 +3,7 @@ info:
   title: Airtable Venue API
   version: 1.0.0
 servers:
-  - url: https://yourdomain.com
+  - url: https://askthehost-customgpt-plugin.onrender.com
 paths:
   /venues:
     get:
