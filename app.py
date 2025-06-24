@@ -1,3 +1,4 @@
+  print("DEBUG: Flask app started")
 from flask import Flask, request, jsonify, abort
 import requests
 from flask_cors import CORS
