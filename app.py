@@ -32,6 +32,18 @@ def check_auth():
         # Try lowercase as fallback
         auth_header = request.headers.get("authorization")
         print(f"DEBUG: Fallback lowercase 'authorization': {auth_header}")
+    if not auth_header:
+        # Try custom header as fallback
+        auth_header = request.headers.get("X-API-Key")
+        print(f"DEBUG: Fallback 'X-API-Key': {auth_header}")
+        if auth_header:
+            token = auth_header
+            print(f"DEBUG: Received token from X-API-Key: '{token}'")
+            print(f"DEBUG: Expected token: '{API_TOKEN}'")
+            if token != API_TOKEN:
+                print("DEBUG: aborting with 403 - token does not match API_TOKEN")
+                abort(403, description="Invalid token")
+            return
     print(f"DEBUG: auth_header value: '{auth_header}' (length: {len(auth_header) if auth_header else 'None'})")
     print(f"DEBUG: auth_header.startswith('Bearer '): {auth_header.startswith('Bearer ') if auth_header else 'None'}")
     if not auth_header:
