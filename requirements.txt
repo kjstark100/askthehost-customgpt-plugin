@@ -2,4 +2,4 @@ flask
 requests
 flask-cors
 python-dotenv
-# Updated requirements for Render deployment
+# Updated requirements for Render deployment1
