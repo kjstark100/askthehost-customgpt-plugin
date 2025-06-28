@@ -1,42 +1,59 @@
 openapi: 3.0.1
 info:
-  title: Airtable Venue API
+  title: Venue Finder
   version: 1.0.0
+  description: Search NYC nightlife venues by music, type, bottle service, and date using The Host’s recommendation engine.
 servers:
   - url: https://askthehost-customgpt-plugin.onrender.com
+
 paths:
-  /venues:
-    get:
-      summary: Get all venues
-      responses:
-        '200':
-          description: A list of venues
   /venues/search:
     get:
-      summary: Search for venues by name or filter
+      operationId: searchVenues
+      summary: Search venues by music preference, venue type, bottle service, and date
       parameters:
-        - in: query
-          name: name
+        - name: music_preference
+          in: query
+          required: false
           schema:
             type: string
+            enum: [house, hip hop, pop]
+          description: Preferred music genre
+        - name: venue_type
+          in: query
           required: false
-        - in: query
-          name: min_capacity
           schema:
-            type: integer
+            type: string
+            enum: [bar, lounge, club, rooftop]
+          description: Type of venue
+        - name: bottle_service
+          in: query
           required: false
-        - in: query
-          name: bottle_service
           schema:
             type: boolean
+          description: Whether bottle service is desired
+        - name: date_requested
+          in: query
           required: false
+          schema:
+            type: string
+            enum: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+          description: Day of the week for the night out
       responses:
         '200':
-          description: Filtered venue results
-components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-security:
-  - bearerAuth: []
+          description: A list of venues matching the search criteria
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  records:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        fields:
+                          type: object
+                          additionalProperties: true
