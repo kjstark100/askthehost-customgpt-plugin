@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Venue Finder
   version: 1.0.0
-  description: Search NYC nightlife venues by music, type, bottle service, and date using The Host’s recommendation engine.
+  description: Search NYC nightlife venues by music type, bottle service, and date using The Host’s recommendation engine.
 servers:
   - url: https://askthehost-customgpt-plugin.onrender.com
 
