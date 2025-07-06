@@ -71,7 +71,7 @@ def get_all_venues():
     print(f"DEBUG: Airtable response body: {response.text}")
     return jsonify(response.json()), response.status_code
 
-@app.route('/venues/search', methods=['GET'])
+@app.route('/venues/search', methods=['GET', 'POST'])
 def search_venues():
     check_auth()
     name = request.args.get('name')
